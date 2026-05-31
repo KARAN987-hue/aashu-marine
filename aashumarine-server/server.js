@@ -1,6 +1,22 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import db from './src/database/db.js';
+
+// TEMP: Create admin user
+app.get('/create-admin', async (req, res) => {
+  const bcrypt = await import('bcryptjs');
+  const hash = await bcrypt.default.hash('admin123', 10);
+  const [result] = await db.query(
+    'DELETE FROM users WHERE email = ?', 
+    ['admin@aashumarine.com']
+  );
+  await db.query(
+    'INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)',
+    ['admin', 'admin@aashumarine.com', hash, 'super_admin']
+  );
+  res.json({ message: 'Admin created!', hash });
+});
 
 // Import routes
 import authRoutes from './src/routes/auth.routes.js';
