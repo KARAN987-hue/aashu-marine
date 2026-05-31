@@ -1,0 +1,61 @@
+/* AnimationWrapper Component Styles */
+
+/* Base animation setup */
+[class*='animation-'] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: var(--animation-duration, 600ms);
+  transition-timing-function: var(--animation-easing, cubic-bezier(0.4, 0, 0.2, 1));
+  transition-delay: var(--animation-delay, 0ms);
+}
+
+/* Fade-in animation */
+.animation-fade-in {
+  opacity: 0;
+}
+
+.animation-fade-in.animation-visible {
+  opacity: 1;
+}
+
+/* Slide-up animation */
+.animation-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animation-slide-up.animation-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-left animation */
+.animation-slide-left {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.animation-slide-left.animation-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide-right animation */
+.animation-slide-right {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.animation-slide-right.animation-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  [class*='animation-'] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,108 @@
+.admin-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-toggle:hover {
+  background-color: #f3f4f6;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 24px;
+}
+
+.hamburger-icon span {
+  display: block;
+  height: 2px;
+  background-color: #374151;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.admin-logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin: 0;
+}
+
+.admin-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.user-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+/* Tablet responsive (768px-1023px) */
+@media (max-width: 1023px) {
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .admin-navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .admin-logo h1 {
+    font-size: 1.25rem;
+  }
+
+  .user-profile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .admin-logo h1 {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,139 @@
+.service-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 2.2rem;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+/* Hover shadow depth */
+
+.service-card:hover {
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.15),
+    0 0 30px rgba(0,140,255,0.25);
+}
+
+/* Glow background */
+
+.service-card__glow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0,153,255,0.35), transparent 70%);
+  top: -50%;
+  left: -50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover .service-card__glow {
+  opacity: 1;
+}
+
+/* Icon */
+
+.service-card__icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg,#0099ff,#00c6ff);
+  border-radius: 50%;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+  animation: floatIcon 4s ease-in-out infinite;
+}
+
+.service-card__icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Floating animation */
+
+@keyframes floatIcon {
+
+  0% { transform: translateY(0px); }
+
+  50% { transform: translateY(-8px); }
+
+  100% { transform: translateY(0px); }
+
+}
+
+/* Heading */
+
+.service-card__heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Description */
+
+.service-card__description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Shine hover effect */
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -120%;
+  width: 250%;
+  height: 250%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,0.4),
+    transparent 60%
+  );
+
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.service-card:hover::before {
+  top: -20%;
+  left: -20%;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .service-card {
+    padding: 1.6rem;
+  }
+
+  .service-card__icon {
+    width: 55px;
+    height: 55px;
+  }
+
+}

@@ -1,0 +1,150 @@
+.testimonials-page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.filters-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+.rating-display {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.rating-display .star {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.rating-display .star.filled {
+  color: #ffc107;
+}
+
+.status-toggle {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.status-toggle.approved {
+  background: #28a745;
+  color: white;
+}
+
+.status-toggle.approved:hover {
+  background: #218838;
+}
+
+.status-toggle.pending {
+  background: #ffc107;
+  color: #333;
+}
+
+.status-toggle.pending:hover {
+  background: #e0a800;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Tablet responsive (768px-1023px) */
+@media (max-width: 1023px) {
+  .testimonials-page {
+    padding: 1.5rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .filters-section {
+    padding: 1rem;
+  }
+
+  .filter-row {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile responsive (below 768px) */
+@media (max-width: 767px) {
+  .testimonials-page {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
+  .rating-display .star {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,32 @@
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.admin-layout-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #f3f4f6;
+}
+
+/* Tablet responsive (768px-1023px) */
+@media (max-width: 1023px) {
+  .admin-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-content {
+    padding: 1rem;
+  }
+}

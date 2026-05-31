@@ -1,0 +1,80 @@
+-- Seed products from frontend dummy data
+INSERT INTO products (product_name, image, category, product_type, manufacturer, `condition`, model, search_keyword, short_description, main_description, owner) VALUES
+(
+  'CYL COVER JACKET',
+  '/uploads/products/UEC52LA.avif',
+  'Engines',
+  'CYLINDER COVER JACKET',
+  'Akasaka',
+  'Refurbished',
+  'UEC52LA',
+  'diesel engine, main engine, propulsion, MAN, 6S50MC, marine engine, cargo ship, tanker',
+  '',
+  'The CYL COVER JACKET for Akasaka UEC52LA marine diesel engines is a high-quality refurbished component designed to ensure efficient cooling and optimal engine performance. Manufactured to meet original equipment specifications, this cylinder cover jacket plays a critical role in regulating engine temperature by maintaining proper coolant circulation around the cylinder head.',
+  'Akasaka'
+),
+(
+  'EXH VALVE',
+  '/uploads/products/UEC52LS.avif',
+  'Engines',
+  'Steering System',
+  'Akasaka',
+  'New',
+  'UEC52LS',
+  'hydraulic pump, steering gear, rudder control, Kawasaki, ship steering, cargo handling',
+  '',
+  'The EXHAUST VALVE for UEC52LS marine diesel engines is a high-performance component engineered to ensure efficient exhaust gas discharge and optimal engine combustion. Designed for durability and precision, this new exhaust valve helps maintain proper sealing, heat resistance, and long operational life under demanding marine conditions.',
+  'Akasaka'
+),
+(
+  'ROLLER GUIDE',
+  '/uploads/products/S50MC-C.avif',
+  'Electronics',
+  'ROLLER GUIDE',
+  'MITSUI MAN B&W',
+  'New',
+  'S50MC-C',
+  'radar, navigation, ARPA, Furuno, collision avoidance, marine electronics, ship radar',
+  '',
+  'The ROLLER GUIDE for MITSUI MAN B&W S50MC-C marine engines is a precision-engineered component designed to ensure smooth and stable movement within the engine assembly. Manufactured to meet OEM specifications, this new roller guide enhances operational reliability and reduces wear in high-load marine engine environments.',
+  'MITSUI MAN B&W'
+),
+(
+  'CYLINDER LINER',
+  '/uploads/products/S50MC-C2.avif',
+  'Engine',
+  'CYLINDER LINER',
+  'HUNDAI MAN B&W',
+  'New',
+  'S50MC-C',
+  'fire pump, emergency pump, fire fighting, safety equipment, marine safety, SOLAS',
+  '',
+  'The CYLINDER LINER for HUNDAI MAN B&W S50MC-C marine engines is a premium-quality new component designed to deliver superior durability, wear resistance, and optimal engine performance. Engineered to meet OEM specifications, this cylinder liner ensures precise piston movement, efficient combustion, and effective heat dissipation under demanding marine operating conditions.',
+  'HUNDAI MAN B&W'
+),
+(
+  'HUNDAI MAN B&W 6S60MC-C HEAD JACKET',
+  '/uploads/products/6S60MC-C.avif',
+  'Engine',
+  'CYLINDER COVER JACKET',
+  'HUNDAI MAN B&W',
+  'Refurbished',
+  '6S60MC-C',
+  'fire pump, emergency pump, fire fighting, safety equipment, marine safety, SOLAS',
+  '',
+  'The HUNDAI MAN B&W 6S60MC-C HEAD JACKET is a high-quality refurbished Cylinder Cover Jacket designed to ensure efficient cooling and thermal stability in marine diesel engines. Precision-refurbished to meet OEM standards, this component plays a critical role in maintaining proper coolant circulation around the cylinder head, preventing overheating and ensuring optimal engine performance.',
+  'HUNDAI MAN B&W'
+),
+(
+  'CYLINDER COVER S50MC-C',
+  '/uploads/products/S50MC-C3.avif',
+  'Engine',
+  'CYLINDER COVER',
+  'HUNDAI MAN B&W',
+  'New',
+  'S50MC-C',
+  'fire pump, emergency pump, fire fighting, safety equipment, marine safety, SOLAS',
+  '',
+  'The CYLINDER COVER S50MC-C for HUNDAI MAN B&W S50MC-C marine engines is a premium-quality new component engineered to ensure reliable sealing, efficient combustion, and optimal engine performance. Manufactured to OEM specifications, this cylinder cover is designed to withstand high pressure and extreme operating temperatures common in heavy-duty marine environments.',
+  'HUNDAI MAN B&W'
+)

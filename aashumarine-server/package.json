@@ -1,0 +1,40 @@
+{
+  "name": "aashumarine-server",
+  "version": "1.0.0",
+  "description": "Aashumarine Marine Equipment Backend API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:bugfix": "node --experimental-vm-modules node_modules/jest/bin/jest.js src/controllers/__tests__/product.controller.bugfix.test.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node src/database/migration/run.js",
+    "seed": "node src/database/seed/run.js",
+    "reset": "node src/database/reset.js"
+  },
+  "keywords": [
+    "marine",
+    "equipment",
+    "api"
+  ],
+  "author": "Aashumarine",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.18.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "fast-check": "^4.5.3",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2"
+  }
+}

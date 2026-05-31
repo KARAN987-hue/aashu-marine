@@ -1,0 +1,372 @@
+/* ProductGallery Component Styles */
+
+.product-gallery {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Main gallery wrapper with arrows */
+.gallery-main-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Scroll container with CSS scroll-snap (Requirement 9.3) */
+.gallery-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Individual slide */
+.gallery-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  max-height: 600px;
+}
+
+/* Gallery image */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 600px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-image:hover {
+  opacity: 0.95;
+}
+
+/* Gallery video (Requirement 9.8) */
+.gallery-video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.gallery-video {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+/* Video poster with play button (Requirement 11.5) */
+.gallery-video-poster {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  cursor: pointer;
+  position: relative;
+}
+
+.video-poster-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-video-poster:hover .video-poster-overlay {
+  transform: scale(1.1);
+}
+
+.gallery-video-poster:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 3px;
+}
+
+.video-play-icon {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.video-poster-text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation arrows (Requirement 9.4) */
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-arrow:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-arrow:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.gallery-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.gallery-arrow-prev {
+  left: 16px;
+}
+
+.gallery-arrow-next {
+  right: 16px;
+}
+
+.gallery-arrow svg {
+  color: #333;
+}
+
+/* Thumbnail navigation (Requirement 9.4) */
+.gallery-thumbnails {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+.gallery-thumbnail {
+  width: 80px;
+  height: 80px;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-thumbnail:hover {
+  border-color: #999;
+  transform: scale(1.05);
+}
+
+.gallery-thumbnail:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.gallery-thumbnail.active {
+  border-color: #0066cc;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video thumbnail icon */
+.thumbnail-video-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+}
+
+.thumbnail-video-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Main container (legacy support) */
+.gallery-main-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 66.67%; /* 3:2 aspect ratio */
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery-main-container .gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-gallery {
+    max-width: 100%;
+  }
+
+  .gallery-slide {
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  .gallery-image,
+  .gallery-video {
+    max-height: 400px;
+  }
+
+  .gallery-video-poster {
+    min-height: 300px;
+  }
+
+  .video-play-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .video-poster-text {
+    font-size: 14px;
+  }
+
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .gallery-arrow-prev {
+    left: 8px;
+  }
+
+  .gallery-arrow-next {
+    right: 8px;
+  }
+
+  .gallery-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gallery-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  .gallery-thumbnails {
+    gap: 8px;
+  }
+
+  .thumbnail-video-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .gallery-arrow {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .gallery-thumbnail {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gallery-arrow {
+    border: 2px solid #000;
+  }
+
+  .gallery-thumbnail {
+    border-width: 4px;
+  }
+
+  .gallery-thumbnail.active {
+    border-color: #000;
+  }
+}
+
+/* Reduced motion support (Requirement 13.6) */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-scroll-container {
+    scroll-behavior: auto;
+  }
+
+  .gallery-image,
+  .gallery-arrow,
+  .gallery-thumbnail,
+  .video-poster-overlay {
+    transition: none;
+  }
+
+  .gallery-arrow:hover,
+  .gallery-thumbnail:hover,
+  .gallery-thumbnail.active,
+  .gallery-video-poster:hover .video-poster-overlay {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.gallery-arrow:focus-visible,
+.gallery-thumbnail:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 3px;
+}
