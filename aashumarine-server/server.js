@@ -1,22 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import db from './src/database/db.js';
-
-// TEMP: Create admin user
-app.get('/create-admin', async (req, res) => {
-  const bcrypt = await import('bcryptjs');
-  const hash = await bcrypt.default.hash('admin123', 10);
-  const [result] = await db.query(
-    'DELETE FROM users WHERE email = ?', 
-    ['admin@aashumarine.com']
-  );
-  await db.query(
-    'INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)',
-    ['admin', 'admin@aashumarine.com', hash, 'super_admin']
-  );
-  res.json({ message: 'Admin created!', hash });
-});
 
 // Import routes
 import authRoutes from './src/routes/auth.routes.js';
@@ -28,6 +12,8 @@ import newsletterRoutes from './src/routes/newsletter.routes.js';
 
 // Import middleware
 import { errorHandler, notFoundHandler } from './src/middleware/errorHandler.js';
+
+import db from './src/database/db.js';
 
 dotenv.config();
 
@@ -42,28 +28,36 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static file serving for uploads with caching and CORS
+// Static file serving
 app.use('/uploads', cors(), express.static('uploads', {
   maxAge: '1d',
   etag: true,
   lastModified: true
 }));
 
-// Request logging middleware (development)
-if (process.env.NODE_ENV === 'development') {
-  app.use((req, res, next) => {
-    console.log(`${req.method} ${req.path}`);
-    next();
-  });
-}
-
-// Health check route
+// Health check
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Aashumarine API Server 🚢', 
     version: '1.0.0',
     status: 'running'
   });
+});
+
+// TEMP: Create admin user
+app.get('/create-admin', async (req, res) => {
+  try {
+    const bcrypt = await import('bcryptjs');
+    const hash = await bcrypt.default.hash('admin123', 10);
+    await db.query('DELETE FROM users WHERE email = ?', ['admin@aashumarine.com']);
+    await db.query(
+      'INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)',
+      ['admin', 'admin@aashumarine.com', hash, 'super_admin']
+    );
+    res.json({ message: 'Admin created successfully!', hash });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // API Routes
@@ -77,7 +71,7 @@ app.use('/api/newsletter', newsletterRoutes);
 // 404 handler
 app.use(notFoundHandler);
 
-// Error handling middleware (must be last)
+// Error handling
 app.use(errorHandler);
 
 // Start Server
